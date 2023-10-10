@@ -1,12 +1,15 @@
+import { AppContainer } from './styles/app';
+import { defaultTheme } from './styles/themes/defaultTheme';
+import { GameStatus } from './components/GameStatus';
 import { GlobalStyle } from './styles/global';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from './styles/themes/defaultTheme';
-import { AppContainer } from './styles/app';
 
 const App: React.FC = () => (
   <>
     <ThemeProvider theme={defaultTheme}>
-      <AppContainer></AppContainer>
+      <AppContainer>
+        <GameStatus />
+      </AppContainer>
       <GlobalStyle />
     </ThemeProvider>
   </>
