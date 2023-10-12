@@ -20,12 +20,16 @@ const GameStatusContainer = styled.main`
   }
 
   .game-status__button {
+    align-items: center;
     background-color: ${(props) => props.theme['blue-700']};
     border-radius: 0.5rem;
     border: 1px solid ${(props) => props.theme['blue-700']};
     color: ${(props) => props.theme.white};
     cursor: pointer;
+    display: flex;
     font-weight: 500;
+    gap: 0.75rem;
+    justify-content: center;
     padding-block: 0.75rem;
     text-transform: uppercase;
     transition: background-color 200ms;
