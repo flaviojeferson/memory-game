@@ -1,9 +1,9 @@
+import { formatElapsedTime } from '../../utils/formatElapsedTime.ts';
 import { GameStatusContainer } from './styles.ts';
+import { useState } from 'react';
+import { useTimer } from '../../hooks/useTimer.ts';
 import playArrowSvgSrc from '../../assets/play_arrow.svg';
 import replaySvgSrc from '../../assets/replay.svg';
-import { useState } from 'react';
-import { formatElapsedTime } from '../../utils/formatElapsedTime.ts';
-import { useTimer } from '../../hooks/useTimer.ts';
 
 const GAME_STARTED = {
   buttonText: 'Reiniciar jogo',
