@@ -1,11 +1,12 @@
-import { shuffleCards } from '../../helpers/shuffleCards.ts';
+import { useContext } from 'react';
 import { GameCard } from './GameCard/index.tsx';
 import { GameTableContainer } from './styles.ts';
+import { MemoryGameContext } from '../../contexts/MemoryGameContext.tsx';
 
 const GameTable: React.FC = () => {
-  const cards = shuffleCards();
+  const { gameState } = useContext(MemoryGameContext)!;
+  const { cards } = gameState;
 
-  console.log(cards);
   return (
     <GameTableContainer>
       {cards.map((card) => {

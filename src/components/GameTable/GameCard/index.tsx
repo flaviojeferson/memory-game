@@ -1,23 +1,34 @@
 import { GameCardContainer } from './styles.ts';
 import questionMarkSvgSrc from '../../../assets/question_mark.svg';
-import { useState } from 'react';
-import { IGameCard } from '../../../@types/Game.ts';
+import { useContext } from 'react';
+import { MemoryGameCard } from '../../../@types/MemoryGame.ts';
+import { MemoryGameContext } from '../../../contexts/MemoryGameContext.tsx';
+import { flipCardById } from '../../../game/flipCardById.ts';
 
 type GameCardProps = {
-  card: IGameCard;
+  card: MemoryGameCard;
 };
 
 const GameCard: React.FC<GameCardProps> = ({ card }) => {
-  const { iconSrc } = card;
-  const [isVisible, setIsVisible] = useState(false);
+  const { gameStateDispatch, gameState } = useContext(MemoryGameContext)!;
+  const { iconSrc, isFlipped, id } = card;
 
-  const currentIcon = isVisible ? iconSrc : questionMarkSvgSrc;
+  const getCardClassName = () => {
+    const cardClasses = ['card'];
 
-  const handleToggleVisibility = () => setIsVisible(!isVisible);
+    if (isFlipped) cardClasses.push('card--visible');
+    if (!gameState.isGaming || gameState.isChecking)
+      cardClasses.push('card--blocked');
+
+    return cardClasses.join(' ');
+  };
+
+  const currentIcon = isFlipped ? iconSrc : questionMarkSvgSrc;
+
   return (
     <GameCardContainer
-      className={`card${isVisible ? ' card__visible' : ''}`}
-      onClick={handleToggleVisibility}
+      className={getCardClassName()}
+      onClick={() => flipCardById({ gameState, gameStateDispatch }, id)}
     >
       <img className="card__icon" src={currentIcon} alt="" />
     </GameCardContainer>

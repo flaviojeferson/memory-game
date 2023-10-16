@@ -9,7 +9,11 @@ const GameCardContainer = styled.div`
   place-items: center;
   width: 6rem;
 
-  &.card__visible {
+  &.card--blocked {
+    cursor: not-allowed;
+  }
+
+  &.card--visible {
     background-color: ${(props) => props.theme['blue-700']};
 
     .card__icon {
