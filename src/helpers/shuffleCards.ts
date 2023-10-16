@@ -1,14 +1,14 @@
-import { IGameCard } from '../@types/Game';
+import { MemoryGameCard } from '../@types/MemoryGame';
 import { gameIcons } from '../assets/gameIcons';
 
-function generatePairOfCard(iconSrc: string): IGameCard[] {
+function generatePairOfCard(iconSrc: string): MemoryGameCard[] {
   return [
     { iconSrc, id: crypto.randomUUID(), isFlipped: false, isMatched: false },
     { iconSrc, id: crypto.randomUUID(), isFlipped: false, isMatched: false },
   ];
 }
 
-function shuffleArray(arr: IGameCard[]): IGameCard[] {
+function shuffleArray(arr: MemoryGameCard[]): MemoryGameCard[] {
   const shuffledArray = [...arr];
   for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
