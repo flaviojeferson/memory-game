@@ -11,8 +11,8 @@ const App: React.FC = () => (
     <ThemeProvider theme={defaultTheme}>
       <AppContainer>
         <MemoryGameProvider>
-          <GameStatus />
-          <GameTable />
+          <GameStatus className="memory-game__status" />
+          <GameTable className="memory-game__table" />
         </MemoryGameProvider>
       </AppContainer>
       <GlobalStyle />

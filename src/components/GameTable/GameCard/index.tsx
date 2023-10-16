@@ -5,9 +5,9 @@ import { MemoryGameCard } from '../../../@types/MemoryGame.ts';
 import { MemoryGameContext } from '../../../contexts/MemoryGameContext.tsx';
 import { flipCardById } from '../../../game/flipCardById.ts';
 
-type GameCardProps = {
+interface GameCardProps {
   card: MemoryGameCard;
-};
+}
 
 const GameCard: React.FC<GameCardProps> = ({ card }) => {
   const { gameStateDispatch, gameState } = useContext(MemoryGameContext)!;

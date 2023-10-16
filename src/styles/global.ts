@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 
   body, button, input, text-area {

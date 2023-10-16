@@ -16,13 +16,15 @@ const GAME_NOT_STARTED = {
   buttonIcon: playArrowSvgSrc,
 };
 
-const GameStatus: React.FC = () => {
+interface GameStatusProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const GameStatus: React.FC<GameStatusProps> = ({ ...props }) => {
   const { gameState, gameStateDispatch } = useContext(MemoryGameContext)!;
   const { elapsedTime } = useTimer(gameState.isGaming);
 
   const gameStatus = gameState.isGaming ? GAME_STARTED : GAME_NOT_STARTED;
   return (
-    <GameStatusContainer>
+    <GameStatusContainer {...props}>
       <h1 className="game-status__title">Jogo da memória</h1>
 
       <div className="game-status__wrapper">

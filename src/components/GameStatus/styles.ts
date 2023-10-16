@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const GameStatusContainer = styled.main`
-  padding: 1rem;
   max-width: 400px;
   .game-status__title {
     line-height: 200%;
